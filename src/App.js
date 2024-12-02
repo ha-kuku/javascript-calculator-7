@@ -6,9 +6,14 @@ class App {
     const input = await Console.readLineAsync('덧셈할 문자열을 입력해 주세요\n');
     validateInputBlank(input);
 
-    input.split(',').forEach((string) => {
-      validateNumber(string.trim());
+    const numbers = input.split(',').map((string) => {
+      const trimmed = string.trim();
+      validateNumber(trimmed);
+      return Number(trimmed);
     });
+
+    const sum = numbers.reduce((acc, cur) => acc + cur, 0);
+    Console.print(`결과 : ${sum}`);
   }
 
   async run() {
