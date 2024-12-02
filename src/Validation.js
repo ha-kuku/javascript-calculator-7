@@ -5,7 +5,7 @@ const validateInputBlank = (input) => {
 };
 
 const validateNumber = (input) => {
-  if (Number.isNaN(input) === false) {
+  if (isNaN(Number(input))) {
     throw new Error('[ERROR] 숫자를 입력해주세요.');
   }
 };
