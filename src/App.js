@@ -1,14 +1,15 @@
 import { Console } from '@woowacourse/mission-utils';
-import { validateInputBlank, validateNumber } from './Validation.js';
+import { validateInputBlank, validateInteger, validateNumber } from './Validation.js';
 
 class App {
   async getCharacterString() {
     const input = await Console.readLineAsync('덧셈할 문자열을 입력해 주세요\n');
     validateInputBlank(input);
 
-    const numbers = input.split(',').map((string) => {
+    const numbers = input.split(/[,;]/).map((string) => {
       const trimmed = string.trim();
       validateNumber(trimmed);
+      validateInteger(trimmed);
       return Number(trimmed);
     });
 

@@ -10,4 +10,10 @@ const validateNumber = (input) => {
   }
 };
 
-export { validateInputBlank, validateNumber };
+const validateInteger = (input) => {
+  if (Number(input) < 0) {
+    throw new Error('[ERROR] 양의 정수를 입력해주세요');
+  }
+};
+
+export { validateInputBlank, validateNumber, validateInteger };
